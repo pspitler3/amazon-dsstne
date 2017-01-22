@@ -7,6 +7,11 @@ FROM nvidia/cuda:7.5-cudnn5-devel-ubuntu14.04
 # Suppress interactive prompts while installing base packages
 ENV DEBIAN_FRONTEND=noninteractive
 
+RUN apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1404/x86_64/7fa2af80.pub
+    sh -c 'echo "deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1404/x86_64 /" > /etc/apt/sources.list.d/cuda.list'
+    apt-get update && sudo apt-get install -y --no-install-recommends cuda-drivers
+
+
 # Add repositories and install base packages
 RUN apt-get update && \
     apt-get install -y build-essential libcppunit-dev libatlas-base-dev pkg-config python \
