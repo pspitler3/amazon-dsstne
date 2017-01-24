@@ -1,3 +1,7 @@
+To set up the data to train run:
+
+`./setup.sh`
+
 To run the basic training:
 
 `train -c config.json -i cifar10_training.nc -o cifar10_test.nc -n gl.nc -b 256 -e 10`

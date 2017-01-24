@@ -8,6 +8,7 @@ cat cifar-10-batches-bin/data_batch_*.bin > training.bin
 
 # Reformat for dsstne
 g++ dparse.cpp -o dparse -lnetcdf -lnetcdf_c++4 --std=c++0x
+./dparse
 
 # Train the model
 train -c config.json -i cifar10_training.nc -o cifar10_test.nc -n gl.nc -b 256 -e 10
